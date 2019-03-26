@@ -7,6 +7,7 @@ class LogoutComponent extends Component{
                 <h1>You are logged out!</h1>
                 <div className="container">
                     Thank you for using our application.
+                    {sessionStorage.removeItem('authenticatedUser')}
                 </div>
             </div>
         )

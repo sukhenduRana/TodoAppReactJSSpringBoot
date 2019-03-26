@@ -41,7 +41,7 @@ class LoginComponent extends Component{
 
         if(this.state.username === 'admin' && this.state.password === 'admin')
         {
-            //this.setState({isLoginSuccess:true})
+            sessionStorage.setItem('authenticatedUser',this.state.username)
             this.props.history.push(`/welcome/${this.state.username}`)
         }
         else{

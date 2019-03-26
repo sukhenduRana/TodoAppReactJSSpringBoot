@@ -15,21 +15,19 @@ class TodoList extends Component{
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <h1>List Todos</h1>
-                <table>
+                <table className="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Description</th>
-                            <th>Done</th>
+                            <th>Is Completed?</th>
                             <th>TargetDate</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.todos.map(todo => (
                             <tr>
-                                <td>{todo.id}</td>
                                 <td>{todo.Description}</td>
                                 <td>{todo.done.toString()}</td>
                                 <td>{todo.TargetDate.toString()}</td>
