@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import AuthenticationService from './AuthenticationService';
 import HeaderComponent from './HeaderComponent';
+
 class LogoutComponent extends Component{
     render(){
         return(
