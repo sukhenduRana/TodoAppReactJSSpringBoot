@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-
+import HeaderComponent from './HeaderComponent'
 class TodoList extends Component{
 
     constructor(props){
@@ -15,6 +15,8 @@ class TodoList extends Component{
 
     render(){
         return(
+            <div>
+            <HeaderComponent/>
             <div className="container">
                 <h1>List Todos</h1>
                 <table className="table">
@@ -37,6 +39,7 @@ class TodoList extends Component{
                         
                     </tbody>
                 </table>
+                </div>
             </div>
         )
     }

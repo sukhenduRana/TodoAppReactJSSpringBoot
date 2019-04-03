@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-
+import AuthenticationService from './AuthenticationService'
+import HeaderComponent from './HeaderComponent'
 class LoginComponent extends Component{
 
     constructor(props){
@@ -19,6 +20,7 @@ class LoginComponent extends Component{
         let loginFailMsg = 'Login Failed'
         return(
             <div>
+                {<HeaderComponent/>}
                 <h1>Login</h1>
                 <div className="container">
                     Username : <input type="text" name="username" onChange={this.handleChange}/>
@@ -31,7 +33,6 @@ class LoginComponent extends Component{
     }
 
     handleChange(e){
-        console.log(this.state)
         this.setState({
             [e.target.name] : e.target.value
         })
@@ -41,7 +42,7 @@ class LoginComponent extends Component{
 
         if(this.state.username === 'admin' && this.state.password === 'admin')
         {
-            sessionStorage.setItem('authenticatedUser',this.state.username)
+            AuthenticationService.login(this.state.username)
             this.props.history.push(`/welcome/${this.state.username}`)
         }
         else{

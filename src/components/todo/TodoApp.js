@@ -3,22 +3,21 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import LoginComponent from './LoginComponent';
 import WelcomeComponent from './WelcomeComponent';
 import TodoList from './TodoList'
-import HeaderComponent from './HeaderComponent';
 import FooterComponent from './FooterComponent';
 import LogoutComponent from './LogoutComponent';
+import AuthenticatedRoute from './AuthenticatedRoute'
 
 class TodoApp extends Component{
     render(){
         return(
             <div className="TodoApp">
                 <Router>
-                    <HeaderComponent/>
                         <Switch>
                             <Route path = "/" exact component={LoginComponent}/>
                             <Route path = "/login" component={LoginComponent}/>
-                            <Route path = "/welcome/:name" component ={WelcomeComponent}/>
-                            <Route path = "/todos" component={TodoList}/>
-                            <Route path = "/logout" component={LogoutComponent}/>
+                            <AuthenticatedRoute path = "/welcome/:name" component ={WelcomeComponent}/>
+                            <AuthenticatedRoute path = "/todos" component={TodoList}/>
+                            <AuthenticatedRoute path = "/logout" component={LogoutComponent}/>
                             <Route component={ErrorComponent}/>
                         </Switch>
                     <FooterComponent/>
