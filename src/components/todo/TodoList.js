@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import HeaderComponent from './HeaderComponent'
 import TodoDataService from '../../api/todo/TodoDataService';
 import AuthenticationService from './AuthenticationService';
+import moment from 'moment'
 class TodoList extends Component{
 
     constructor(props){
@@ -13,6 +14,8 @@ class TodoList extends Component{
 
         this.deleteTodo = this.deleteTodo.bind(this);
         this.refreshTodos = this.refreshTodos.bind(this)
+        this.updateTodo = this.updateTodo.bind(this)
+        this.createTodo = this.createTodo.bind(this)
     }
 
     componentDidMount(){
@@ -40,12 +43,21 @@ class TodoList extends Component{
 
     }
 
+    updateTodo(id){
+        this.props.history.push(`/todo/${id}`)
+    }
+
+    createTodo(){
+        this.props.history.push('/todo/-1')
+    }
+
     render(){
         return(
             <div>
             <HeaderComponent/>
             <div className="container">
                 <h1>List Todos</h1>
+                <span style={{float:'left', padding:'5px'}}><button onClick={this.createTodo} className="btn btn-success">Add</button></span>
                 {this.state.message ?<div className="alert alert-success">{this.state.message}</div> : ''}
                 <table className="table">
                     <thead>
@@ -53,15 +65,17 @@ class TodoList extends Component{
                             <th>Description</th>
                             <th>Is Completed?</th>
                             <th>TargetDate</th>
+                            <th>Update</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.todos.map(todo => (
-                            <tr>
+                            <tr key={todo.id}>
                                 <td>{todo.description}</td>
                                 <td>{String(todo.done)}</td>
-                                <td>{todo.targetDate}</td>
+                                <td>{moment(todo.targetDate).format('YYYY-MM-DD')}</td>
+                                <td><button className="btn btn-success" onClick={() => this.updateTodo(todo.id)}>Update</button></td>
                                 <td><button className="btn btn-warning" onClick={() => this.deleteTodo(todo.id)}>Delete</button></td>
                             </tr>
                             
