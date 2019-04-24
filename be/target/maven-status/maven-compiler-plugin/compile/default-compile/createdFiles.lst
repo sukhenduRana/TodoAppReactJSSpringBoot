@@ -1,4 +1,15 @@
-com\todoapp\rest\webservices\restfulwebservices\RestfulWebServicesApplication.class
-com\todoapp\rest\webservices\restfulwebservices\TodoResource.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JwtTokenAuthorizationOncePerRequestFilter.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\resource\JwtTokenResponse.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\resource\JwtTokenRequest.class
 com\todoapp\rest\webservices\restfulwebservices\todo\Todo.class
 com\todoapp\rest\webservices\restfulwebservices\todo\TodoHardCodedService.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JwtUnAuthorizedResponseAuthenticationEntryPoint.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JwtInMemoryUserDetailsService.class
+com\todoapp\rest\webservices\restfulwebservices\RestfulWebServicesApplication.class
+com\todoapp\rest\webservices\restfulwebservices\basic\auth\AuthenticationBean.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JwtUserDetails.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JwtTokenUtil.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\JWTWebSecurityConfig.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\resource\JwtAuthenticationRestController.class
+com\todoapp\rest\webservices\restfulwebservices\TodoResource.class
+com\todoapp\rest\webservices\restfulwebservices\jwt\resource\AuthenticationException.class

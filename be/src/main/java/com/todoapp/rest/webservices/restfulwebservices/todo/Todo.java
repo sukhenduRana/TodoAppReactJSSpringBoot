@@ -2,15 +2,25 @@ package com.todoapp.rest.webservices.restfulwebservices.todo;
 
 import java.util.Date;
 
-public class Todo {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	private int id;
+@Entity
+@Table(name ="todo")
+public class Todo {
+	
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String username;
 	private String description;
 	private Date targetDate;
 	private boolean isDone;	
 	
-	public Todo(int id, String username, String description, Date targetDate, boolean isDone) {
+	public Todo() {}
+	public Todo(Long id, String username, String description, Date targetDate, boolean isDone) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -19,10 +29,10 @@ public class Todo {
 		this.isDone = isDone;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUsername() {

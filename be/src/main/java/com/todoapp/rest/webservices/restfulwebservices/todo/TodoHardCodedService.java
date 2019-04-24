@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class TodoHardCodedService {
 	
 	private static List<Todo> todos = new ArrayList<Todo>();
-	private static int idCounter = 0;
+	private static Long idCounter = 0L;
 	
 	static {
 		todos.add(new Todo(++idCounter, "admin", "Learn ReactJS", new Date(), false));
@@ -23,7 +23,7 @@ public class TodoHardCodedService {
 	}
 	
 	public List<Todo> findAll(){
-		Comparator<Todo> sorted = (t1, t2) -> t1.getId() - t2.getId();
+		Comparator<Todo> sorted = (t1, t2) -> t1.getId().intValue() - t2.getId().intValue();
 		return todos.stream().sorted(sorted).collect(Collectors.toList());
 	}
 

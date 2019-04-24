@@ -40,15 +40,14 @@ class LoginComponent extends Component{
 
     loginClicked(){
 
-        if(this.state.username === 'admin' && this.state.password === 'admin')
-        {
-            AuthenticationService.login(this.state.username, this.state.password)
+        AuthenticationService.executeJwtAuthenticationService(this.state.username, this.state.password)
+        .then(response => {
+            AuthenticationService.registerSuccessfulLoginForJwt(this.state.username, response.data.token)
             this.props.history.push(`/welcome/${this.state.username}`)
-        }
-        else{
+        }).catch(() => {
             this.setState({isLoginSuccess:false})
-        }
-        this.setState({showMsg:true})
+            this.setState({showMsg:true})
+        })        
     }
 }
 
